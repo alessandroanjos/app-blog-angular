@@ -1,0 +1,43 @@
+<p>dashboard-post-form-dialog works!</p>
+
+<div class="dialog-container">
+    <h2>Nova postagem</h2>
+
+    <mat-dialog-content>
+
+        <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm)">
+            <mat-form-field>
+                <mat-label>Author</mat-label>
+                <input matInput name="author" [(ngModel)]="author" required>
+                <mat-error>Voce deve escrever o nome do author</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Titulo</mat-label>
+                <input matInput name="title" [(ngModel)]="title" required>
+                <mat-error>Voce deve escrever o nome do Titulo</mat-error>
+            </mat-form-field>
+           
+            <mat-form-field>
+                <mat-label>Data</mat-label>
+                <input matInput name="date" [(ngModel)]="date" required >
+                <mat-error>Voce deve informar a data</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Conteudo</mat-label>
+                <textarea matInput rows="5" name="content" [(ngModel)]="content" required></textarea>
+                <mat-error>Voce deve escrever o conteudo</mat-error>
+            </mat-form-field>
+
+            <button mat-flat-button [disabled]="!postForm.form.valid">Salvar</button>
+
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button mat-dialog-close="false">Cancelar</button>
+        <button mat-dialog-close="true">Salvar</button>
+    </mat-dialog-actions>
+
+</div>

@@ -1,0 +1,12 @@
+.dialog-container{
+    padding: 1rem;
+}
+
+form {
+    display: grid;
+}
+
+mat-form-field {
+
+    width: 30rem;
+}

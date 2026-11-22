@@ -1,0 +1,9 @@
+table { 
+ margin-top: 1rem;
+}
+
+.new-post-button{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem 0 1rem 0;
+}

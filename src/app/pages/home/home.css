@@ -1,0 +1,28 @@
+.container {
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.spacer {
+    width: 3rem;
+}
+
+mat-toolbar {
+    background-color: cadetblue;
+    color: white;
+}
+
+.toolbar-link {
+    text-decoration: none;
+    padding:  0.5rem;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+
+.toolbar-link:hover {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+
