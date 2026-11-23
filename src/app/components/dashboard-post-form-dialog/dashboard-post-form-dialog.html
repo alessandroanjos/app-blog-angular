@@ -1,7 +1,7 @@
 <p>dashboard-post-form-dialog works!</p>
 
 <div class="dialog-container">
-    <h2>Nova postagem</h2>
+    <h2>{{ formTitle }}</h2>
 
     <mat-dialog-content>
 
@@ -17,11 +17,11 @@
                 <input matInput name="title" formControlName="title" >
                 <mat-error>Voce deve escrever o nome do Titulo</mat-error>
             </mat-form-field>
-           
+
             <mat-form-field>
                 <mat-label>Data</mat-label>
                 <input matInput [matDatepicker]="datePicker"  name="date" formControlName="date">
-                
+
                 <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
                 <mat-datepicker #datePicker></mat-datepicker>
                 <mat-error>Voce deve informar a data</mat-error>
@@ -33,7 +33,7 @@
                 <mat-error>Voce deve escrever o conteudo</mat-error>
             </mat-form-field>
 
-            <button mat-flat-button [disabled]="!postForm.valid" >Salvar</button>
+            <button mat-flat-button [disabled]="!postForm.valid" >{{ submitButtonLabel }}</button>
 
         </form>
     </mat-dialog-content>

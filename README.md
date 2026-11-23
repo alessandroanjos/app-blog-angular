@@ -6,6 +6,26 @@ branchs:
  - main -> Apresenta formulário baseado em templates
 
 
+## Iniciando no Projeto
+
+* Instalar as dependencias 
+
+```bash
+npm install
+```
+
+
+* Rodar o servidor backend
+1) Abrir um novo terminal e digitar:
+```bash
+npx json-server db.json
+```
+
+2) No primeiro terminal, digite:
+```bash
+npm start
+```
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.3.0.
 
 ## Development server

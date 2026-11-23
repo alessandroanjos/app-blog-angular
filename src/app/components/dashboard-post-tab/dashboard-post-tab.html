@@ -2,45 +2,45 @@
 
 
 <div>
-    <button mat-flat-button class="new-post-button" (click)="openPostFormDialog()"> Nova Postagem 
+    <button mat-flat-button class="new-post-button" (click)="openPostFormDialog()"> Nova Postagem
         <mat-icon>add</mat-icon>
     </button>
-    
+
 </div>
 
-<table mat-table [dataSource]="posts">
+<table mat-table [dataSource]="posts()">
 
     <ng-container matColumnDef="id" >
-        <th mat-header-cell  *matHeaderCellDef> ID</th>            
+        <th mat-header-cell  *matHeaderCellDef> ID</th>
         <td mat-cell *matCellDef="let post"> {{ post.id }} </td>>
     </ng-container>
 
-    
+
     <ng-container matColumnDef="author" >
-        <th mat-header-cell  *matHeaderCellDef>Author</th>            
+        <th mat-header-cell  *matHeaderCellDef>Author</th>
         <td mat-cell *matCellDef="let post"> {{ post.author }} </td>>
     </ng-container>
 
-    
+
     <ng-container matColumnDef="title" >
-        <th mat-header-cell  *matHeaderCellDef> Title</th>            
+        <th mat-header-cell  *matHeaderCellDef> Title</th>
         <td mat-cell *matCellDef="let post"> {{ post.title }} </td>>
     </ng-container>
 
     <ng-container matColumnDef="date" >
-        <th mat-header-cell  *matHeaderCellDef>Date</th>            
-        <td mat-cell *matCellDef="let post"> {{ post.date }} </td>>
+        <th mat-header-cell  *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let post"> {{ post.date | date:'dd/MM/yyyy'}} </td>>
     </ng-container>
 
-    
+
     <ng-container matColumnDef="edit" >
-        <th mat-header-cell  *matHeaderCellDef></th>            
-        <td mat-cell *matCellDef="let post"> Editar </td>>
+        <th mat-header-cell  *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let post"> <a mat-stroked-button (click)="openEditPost(post.id)" > Editar </a>  </td>>
     </ng-container>
 
     <ng-container matColumnDef="delete" >
-        <th mat-header-cell  *matHeaderCellDef></th>            
-        <td mat-cell *matCellDef="let post"> Remover </td>>
+        <th mat-header-cell  *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let post"> <a mat-flat-button color="warn" (click)="deletePostDialog(post.id)"> Excluir </a> </td>>
     </ng-container>
 
 
