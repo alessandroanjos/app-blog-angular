@@ -6,6 +6,15 @@ branchs:
  - main -> Apresenta formulário baseado em templates
 
 
+# Conteúdos aplicados no projeto
+
+ - Autenticação com Guards
+ - Material Angular
+ - Signals
+ - Injeção de Dependencias
+ - Banco de Dados (db.json)
+ - Interceptors - intercepta requisicoes http de saidas e de entrada. 
+
 ## Iniciando no Projeto
 
 * Instalar as dependencias 
@@ -18,7 +27,7 @@ npm install
 * Rodar o servidor backend
 1) Abrir um novo terminal e digitar:
 ```bash
-npx json-server db.json
+npx json-server db.json -m ./node_modules/json-server-auth
 ```
 
 2) No primeiro terminal, digite:

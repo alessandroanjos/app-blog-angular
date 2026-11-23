@@ -4,6 +4,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatDatepicker, MatDatepickerInput, MatDatepickerToggle } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { PostService } from '../../services/post';
@@ -14,6 +15,7 @@ import { DateTime } from 'luxon';
 @Component({
   imports: [
     MatDialogModule,
+    MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,

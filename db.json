@@ -35,5 +35,14 @@
       "date": "2026-11-23T14:43:04.727-03:00",
       "content": "lala"
     }
+  ],
+  "users": [
+    {
+      "id": "d57c14c2-622a-40ea-bb81-2d46338f848e",
+      "name": "Bruno Batista",
+      "email": "sandro.adsc@gmail.com",
+      "password": "$2b$10$oOSZg3WSAXabUTVjJxHBhuYrv/fVPvhpBGpKYWVrPz3G2PO18wIB2",
+      "isActive": true
+    }
   ]
 }

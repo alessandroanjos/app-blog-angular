@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { MatToolbar } from '@angular/material/toolbar';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import Auth from '../../services/auth';
 
 @Component({
   imports: [MatToolbar, RouterOutlet, RouterLink],
@@ -9,4 +10,15 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './home.css',
   templateUrl: './home.html',
 })
-export class Home {}
+export class Home {
+
+  private router = inject(Router);
+  private auth = inject(Auth);
+
+
+  logout(){
+    this.auth.logout();
+    this.router.navigate(['/blog'])
+  }
+
+}
