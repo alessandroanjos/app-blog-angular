@@ -11,6 +11,8 @@ export const routes: Routes = [
         path: 'blog', component: Blog
     },
     {
-        path: 'dashboard', component: Dashboard
+      // Nesse caso, quando acessar essa rota, vai aplicar as rodas do DashBoard de forma tardia, apenas quando acessar a rota
+        path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.routes')
+        .then((m) => m.ROUTES),
     }
 ];

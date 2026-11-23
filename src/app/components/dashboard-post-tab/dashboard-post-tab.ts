@@ -1,18 +1,15 @@
 import { Component, signal } from '@angular/core';
 
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule, MatAnchor } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table'
 import { Post } from '../../models/post';
-import { MatDialog } from '@angular/material/dialog';
 import { DashboardPostFormDialog } from '../dashboard-post-form-dialog/dashboard-post-form-dialog';
 import { PostService } from '../../services/post';
 import { PostDeleteDialog } from '../post-delete-dialog/post-delete-dialog';
 import { DatePipe } from '@angular/common';
-
+import { DashboardModule } from '../../modules/dashboard/dashboard-module';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  imports: [MatTableModule, MatAnchor, MatButtonModule, MatIconModule, DatePipe],
+  imports: [DashboardModule, DatePipe],
   selector: 'app-dashboard-post-tab',
   styleUrl: './dashboard-post-tab.css',
   templateUrl: './dashboard-post-tab.html',
