@@ -1,42 +1,56 @@
-import { Component } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
-
+import { Component, Inject, inject } from '@angular/core';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDatepicker, MatDatepickerInput, MatDatepickerToggle } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormField } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule, NgForm } from '@angular/forms';
-import { delay } from 'rxjs';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
+import { PostService } from '../../services/post';
+import { Post } from '../../models/post';
+import { v4 as uuidv4 } from 'uuid';
+import { DateTime } from 'luxon';
 
 @Component({
-  imports: [MatDialogModule, MatInputModule, MatFormField, MatButtonModule, FormsModule],
+  imports: [
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatDatepicker,
+    MatDatepickerInput,
+    MatDatepickerToggle,
+  ],
   selector: 'app-dashboard-post-form-dialog',
   styleUrl: './dashboard-post-form-dialog.css',
   templateUrl: './dashboard-post-form-dialog.html',
 })
 export class DashboardPostFormDialog {
+  private dialogRef = inject(MatDialogRef<DashboardPostFormDialog>);
 
+  private postService = inject(PostService);
 
-  author: string = "Francisco";
-  title: string = "";
-  date: string = "";
-  content: string = "";
+  postForm = new FormGroup({
+    author: new FormControl('', Validators.required),
+    title: new FormControl(''),
+    date: new FormControl(DateTime.now()),
+    content: new FormControl(''),
+  });
 
-  ngOnInit(){
-    //pesquisar na API
-    this.author = 'Andressa'
-  }
+  onSubmit() {
+    if (this.postForm.invalid) return;
 
+    console.log(this.postForm.value);
 
+    const author = this.postForm.value.author!!;
+    const title = this.postForm.value.title!!;
+    const date = this.postForm.value.date!!;
+    const content = this.postForm.value.content!!;
 
-  onSubmit(postForm: NgForm){
+    const post = new Post(uuidv4(), author, title, date, content);
 
-    const name = postForm.form.value.name;
-    const title = postForm.form.value.title;
-    const date = postForm.form.value.date;
-    const content = postForm.form.value.content;
+    this.postService.createPost(post);
 
-    console.log(`[Name]: ${name}, Title:${title} `)
-
-    console.log("form cadastro", postForm)
+    // Opcional: passar os dados do formulário de volta para quem abriu o dialog
+    this.dialogRef.close();
   }
 }

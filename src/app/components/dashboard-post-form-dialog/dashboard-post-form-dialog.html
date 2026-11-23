@@ -5,32 +5,35 @@
 
     <mat-dialog-content>
 
-        <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm)">
+        <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
             <mat-form-field>
                 <mat-label>Author</mat-label>
-                <input matInput name="author" [(ngModel)]="author" required>
+                <input matInput name="author" formControlName="author" >
                 <mat-error>Voce deve escrever o nome do author</mat-error>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Titulo</mat-label>
-                <input matInput name="title" [(ngModel)]="title" required>
+                <input matInput name="title" formControlName="title" >
                 <mat-error>Voce deve escrever o nome do Titulo</mat-error>
             </mat-form-field>
            
             <mat-form-field>
                 <mat-label>Data</mat-label>
-                <input matInput name="date" [(ngModel)]="date" required >
+                <input matInput [matDatepicker]="datePicker"  name="date" formControlName="date">
+                
+                <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker></mat-datepicker>
                 <mat-error>Voce deve informar a data</mat-error>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Conteudo</mat-label>
-                <textarea matInput rows="5" name="content" [(ngModel)]="content" required></textarea>
+                <textarea matInput rows="5" name="content" formControlName="content" ></textarea>
                 <mat-error>Voce deve escrever o conteudo</mat-error>
             </mat-form-field>
 
-            <button mat-flat-button [disabled]="!postForm.form.valid">Salvar</button>
+            <button mat-flat-button [disabled]="!postForm.valid" >Salvar</button>
 
         </form>
     </mat-dialog-content>
