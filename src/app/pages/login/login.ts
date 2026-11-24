@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Auth from '../../services/auth';
@@ -14,7 +14,8 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './login.html',
 })
 export class Login {
-  showError = false;
+  showError = signal(false);
+  submitting = signal(false);
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -27,16 +28,25 @@ export class Login {
   ) {}
 
   onSubmit() {
+    if (this.loginForm.invalid || this.submitting()) {
+      return;
+    }
+
+    this.showError.set(false);
+    this.submitting.set(true);
+
     const email = this.loginForm.value.email!!;
     const password = this.loginForm.value.password!!;
 
     const credentials = new Credentials(email, password);
     this.auth.login(credentials).subscribe({
       next: () => {
+        this.submitting.set(false);
         this.router.navigate(['/dashboard']);
       },
       error: () => {
-        this.showError = true;
+        this.submitting.set(false);
+        this.showError.set(true);
       },
     });
   }

@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Authentication } from '../models/authentication';
 import { Credentials } from '../models/credentials';
-import { catchError, Observable, tap, throwError } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 class Auth {
@@ -15,11 +15,7 @@ class Auth {
           if (response && response.accessToken){
             sessionStorage.setItem('token', response.accessToken)
           }
-        }),
-        catchError(() => throwError(() => {
-          console.log('falhou a autenticação...')
-          new Error('Autenticação falhou')
-        }))
+        })
       );
   }
 
