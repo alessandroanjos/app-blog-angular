@@ -6,7 +6,11 @@
   <span>Simple Blog Alessandro</span>
   <span class="spacer"></span>
   <a class="toolbar-link" routerLink="/blog" routerLinkActive="active"> Blog</a>
-  <a class="toolbar-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+
+  @if (auth.isAuthenticated()) {
+    <a class="toolbar-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+  }
+
 
   <span class="itens-spacer"></span>
   <a class="toolbar-login" routerLink="/login">
@@ -16,7 +20,7 @@
       <a class="toolbar-login" (click)="logout()">Sair</a>
     }
   </a>
- 
+
 </mat-toolbar>
 
 <router-outlet></router-outlet>

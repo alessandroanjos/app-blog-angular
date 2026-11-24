@@ -39,9 +39,16 @@
   "users": [
     {
       "id": "d57c14c2-622a-40ea-bb81-2d46338f848e",
-      "name": "Bruno Batista",
-      "email": "sandro.adsc@gmail.com",
-      "password": "$2b$10$oOSZg3WSAXabUTVjJxHBhuYrv/fVPvhpBGpKYWVrPz3G2PO18wIB2",
+      "name": "Alessandro",
+      "email": "alessandro@gmail.com",
+      "password": "$2a$10$0WTUMjI6f9qs3yaK9WdI7.Vc33xydE/vewn/w2mVuahA9FfJL42Xy",
+      "isActive": true
+    },
+    {
+      "email": "rodrigo@gmail.com",
+      "password": "$2a$10$Zd1ARQUMoyx5I0VS5jaW/e2yAmJ3U/8Ey56HbBo/U2Wmj8sUqGBda",
+      "id": "babab42e-c117-478c-a8f4-900fc195d944",
+      "name": "Rodrigo",
       "isActive": true
     }
   ]

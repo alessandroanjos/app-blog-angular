@@ -5,7 +5,11 @@
 
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <h2>Login</h2>
-    <h3 *ngIf="showError">Endereço de e-mail ou senha inválidos, por favor tente novamente!</h3>
+
+    @if(showError){
+      <h3>Endereço de e-mail ou senha inválidos, por favor tente novamente!</h3>
+    }
+
     <mat-form-field>
       <mat-label>E-mail</mat-label>
       <input matInput name="email" formControlName="email">

@@ -16,7 +16,10 @@ class Auth {
             sessionStorage.setItem('token', response.accessToken)
           }
         }),
-        catchError(() => throwError(() => new Error('Autenticação falhou')))
+        catchError(() => throwError(() => {
+          console.log('falhou a autenticação...')
+          new Error('Autenticação falhou')
+        }))
       );
   }
 

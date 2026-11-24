@@ -1,0 +1,15 @@
+form {
+  display: grid;
+}
+
+mat-form-field {
+  width: 30rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+.dialog-container {
+  padding: 1rem;
+}

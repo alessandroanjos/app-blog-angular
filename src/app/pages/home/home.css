@@ -7,6 +7,10 @@
 .spacer {
     width: 3rem;
 }
+.toolbar-background {
+  background-color: rgb(0, 111, 207);
+  color: white;
+}
 
 mat-toolbar {
     background-color: cadetblue;
@@ -26,3 +30,20 @@ mat-toolbar {
 }
 
 
+.toolbar-login {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+}
+
+.itens-spacer {
+  flex: 1 1 auto;
+}
+
+
+.active {
+  background-color: rgb(0, 136, 255);
+}

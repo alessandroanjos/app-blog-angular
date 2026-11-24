@@ -6,7 +6,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { registerLocaleData } from '@angular/common';
 import  localPt  from '@angular/common/locales/pt';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './interceptors/auth-interceptor';
 
 
 registerLocaleData(localPt);
@@ -14,10 +15,10 @@ registerLocaleData(localPt);
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes), 
+    provideRouter(routes),
     provideAnimationsAsync(),
     provideLuxonDateAdapter(),
     { provide: MAT_DATE_LOCALE, useValue: 'pt'},
-    provideHttpClient()
+    provideHttpClient(withInterceptors([authInterceptor]))
   ]
 };
